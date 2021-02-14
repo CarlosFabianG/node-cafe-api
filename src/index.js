@@ -1,16 +1,20 @@
+const Server = require('./models/server.model');
+require('dotenv').config();
 const express = require('express');
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT;
+
+// router
+const envelopRouter = require('./routes/envelop.router');
 
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-app.get('/', (req, res) => {
-    res.send("Hello World!")
-}) 
+// register routers
+app.use('/envelop', envelopRouter)
 
-app.listen(PORT, () => {
-    console.log(`App is running in port:${PORT}`) 
-});
+ const server = new Server();
+
+ server.listen();
