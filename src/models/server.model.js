@@ -1,6 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 
+// routers
+const userRouter = require('../routes/user.routes');
+
 class Server {
     constructor() {
         this.app = express();
@@ -19,9 +22,7 @@ class Server {
     }
 
     routes() {
-        this.app.get('/', (req, res) => {
-            res.send("Hello World!")
-        })
+        this.app.use('/user', userRouter);
     }
 
     listen() {
