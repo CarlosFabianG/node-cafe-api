@@ -1,6 +1,6 @@
 const { Router } = require('express');
 
-const envelopRouter = new Router();
+const envelopRouter = Router();
 
 // Basic CRUD operation
 
